@@ -63,7 +63,9 @@ foreach(var dsPhrase in dsScript){
             note.position >= offset_tick - tick_ep && 
             note.position <= end_tick + tick_ep
         ).ToList();
-    
+    if(notesInPhrase.Count == 0){
+        continue;
+    }
     //Reduce pitch point
     List<int> mustIncludeIndices = notesInPhrase
         .SelectMany(n => new[] { 
@@ -96,7 +98,7 @@ foreach(var dsPhrase in dsScript){
     //otherwise, it is the index of the pitch point with minimal y-distance to the note
     var adjusted_boundaries = new int[notesInPhrase.Count + 1];
     adjusted_boundaries[0] = 2;
-    foreach(int i in Enumerable.Range(0,notesInPhrase.Count - 1)){
+    for(int i = 0 ; i < notesInPhrase.Count - 1 ; ++i){
         var note = notesInPhrase[i];
         var notePitch = note.tone;
         //var zero_point = points.FindIndex(note_boundaries[i], note_boundaries[i + 1] - note_boundaries[i], p => p.Y == 0);
