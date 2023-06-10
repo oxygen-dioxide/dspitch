@@ -1,0 +1,3 @@
+name=Load pitch from .ds file
+execute=DsPitch.exe
+encoding=utf-8
