@@ -21,4 +21,8 @@
   <!--<ItemGroup>
     <ProjectReference Include="../../utauPlugin/utauPlugin/utauPlugin.csproj" />
   </ItemGroup>-->
+
+  <PropertyGroup>
+    <PublishTrimmed>true</PublishTrimmed>
+  </PropertyGroup>
 </Project>
